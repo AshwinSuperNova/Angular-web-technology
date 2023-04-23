@@ -1,0 +1,106 @@
+<div>
+  <h1 class="bg-danger-subtle">WEB TECHNOLOGY EXERCISES </h1>
+  <app-binding></app-binding>
+<hr>
+<h2 class="blockquote text-center">inbuilt pipes and custom pipes in Angular</h2>
+  <table class="table">
+    <thead class="bg-dark-subtle">
+    <tr >
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Department</th>
+      <th scope="col">DOB</th>
+      <th scope="col">placementsalary</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users1">
+        <td>{{user.stud_id}}</td>
+        <td>{{user.stud_name |uppercase}}</td>
+        <td>{{user.stud_dept|lowercase}}</td>
+        <td>{{user.DOB}}</td>
+        <td>{{user.salary|currency:'INR'}}</td>
+        <td>{{user.DOB|age}}</td>
+
+
+
+    </tr>
+
+  </tbody>
+  </table>
+  <pre>
+    {{users1|json}}
+  </pre>
+</div>
+<br>
+<hr class="dark text-center">
+<div  class="container">
+  <h1 class="bg-danger-subtle">@input and @output decorators</h1>
+
+  <div class="card">
+    <div class="card-header">
+      <h1>parent component(appcomp)</h1>
+    </div>
+    <div class="card-body">
+      Transfer data :<input type="text" class="form-control" [(ngModel)]="entername"/>
+      <input type="button" class="btn btn-dark" value="send" (click)="TransferData()"/>
+      <app-home [parentdata]="parentdata"></app-home>
+      <app-home (senddata)="senddata($event)"></app-home>
+    </div>
+    <ul *ngFor="let user of value"> 
+      <li>{{user.stud_id}}&nbsp;&nbsp;&nbsp;{{user.stud_name}}&nbsp;&nbsp;&nbsp;{{user.stud_dept}}</li>
+    </ul>
+    
+  </div>
+
+</div>
+<br>
+  
+<h1 class="bg-danger-subtle">Angular Routing</h1>
+<br>
+<nav class="navbar navbar-light bg-light">
+  <a [routerLink]="['/home']" routerLinkActive="active" >Home</a><br>
+  <a [routerLink]="['/about']" routerLinkActive="active">About</a><br>
+  <a [routerLink]="['/databinding']" routerLinkActive="active">data</a>
+</nav>
+<router-outlet></router-outlet>
+<h1 class="bg-danger-subtle">Angular service </h1>
+
+<!-- <ul class="list-group">
+  <li 
+      *ngFor="let post of posts"
+      class="list-group-item">
+      id:{{ post.id }}<br>
+      UserId:{{ post.userId }}<br>
+      title:{{ post.title}}<br>
+      description:  {{ post.body}}
+
+  </li>
+</ul> -->
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>UserId</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Company</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let students of student">
+        <td>{{students.id}}</td>
+        <td>{{students.name}}</td>
+        <td>{{students.email}}</td>
+        <td>{{students.phone}}</td>
+        <td>{{students.website}}</td>
+        <td>{{students.company.name}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

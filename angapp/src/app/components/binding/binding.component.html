@@ -1,0 +1,15 @@
+<h1>{{pageTitle}}</h1>
+<img src={{imageUrl}}/><br>
+<button type="button" class="btn btn-primary" disabled="{{btnstatus}}" >click me</button><hr>
+<h1>Property Binding</h1>
+<img [src]="imageUrl"/><br>
+<button type="button" class="btn btn-warning"[disabled]="btnstatus" >click me</button><br>
+<button type="button" class="btn btn-outline-dark" (click)="changeimage()" >change image</button><hr>
+<button type="button" class="btn btn-outline-dark" (click)="changeimageback()" >changeimageback</button><hr>
+<h1>{{pageTitle1}}</h1>
+<button type="button" class="btn btn-outline-dark" (click)="changeTitle()" >change title</button>
+<button type="button" class="btn btn-outline-danger"(click)="changeTitleback()" >change title back</button><hr>
+<h1>Two Way Binding</h1>
+<input [(ngModel)]="username" />
+<h1>Welcome user Mr.{{username}}</h1>
+
